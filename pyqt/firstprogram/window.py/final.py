@@ -29,20 +29,21 @@ class Example ( QtGui . QMainWindow ):
 	def initUI ( self ):
 		
 		
-		self . sortType = QtGui . QPushButton ( " Add " , self )
-		self . sortType . move (240 , 10)
+		add = QtGui . QPushButton ( " Add " , self )
+		add . move (240 , 20)
 		
-		self . sortType = QtGui . QPushButton ( " Delete " , self )
-		self . sortType . move (240 , 40)
+		delete = QtGui . QPushButton ( " Delete " , self )
+		delete . move (240 , 60)
 		
-		sortB = QtGui . QPushButton ( " Edit " , self )
-		
-		sortB . move (240 , 70)
+		edit = QtGui . QPushButton ( " Edit " , self )
+		edit . move (240 , 100)
 
+		save = QtGui . QPushButton ( 'Save' , self )
+		save . move (240 , 140)
 
 		self . lv = QtGui . QListView ( self )
 		self . lv . setModel ( self . model )
-		self . lv . setGeometry (20 , 20 , 200 , 150)
+		self . lv . setGeometry (20 , 20 , 200 , 170)
              
 		label2 = QtGui.QLabel('Grading System', self)
 		label2.move(20, 190)
