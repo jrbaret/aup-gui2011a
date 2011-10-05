@@ -40,6 +40,7 @@ class MainWindow(QtGui.QMainWindow):
 
         menubar = self.menuBar()
         file = menubar.addMenu('&File')
+        file = menubar.addMenu('&Help')
         file.addAction(exit)
 
 		
