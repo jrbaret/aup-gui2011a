@@ -29,17 +29,21 @@ class Example ( QtGui . QMainWindow ):
 	def initUI ( self ):
 		
 		
-		add = QtGui . QPushButton ( " Add " , self )
-		add . move (240 , 20)
+		self.add = QtGui . QPushButton ( " Add " , self )
+		self.add.setFocusPolicy(QtCore.Qt.NoFocus)
+		self.add . move (240 , 20)
+		self.connect(self.add, QtCore.SIGNAL('clicked()'), 
+            self.showDialog)
+		self.setFocus()
 		
-		delete = QtGui . QPushButton ( " Delete " , self )
-		delete . move (240 , 60)
+		self.delete = QtGui . QPushButton ( " Delete " , self )
+		self.delete . move (240 , 60)
 		
-		edit = QtGui . QPushButton ( " Edit " , self )
-		edit . move (240 , 100)
+		self.edit = QtGui . QPushButton ( " Edit " , self )
+		self.edit . move (240 , 100)
 
-		save = QtGui . QPushButton ( 'Save' , self )
-		save . move (240 , 140)
+		self.save = QtGui . QPushButton ( 'Save' , self )
+		self.save . move (240 , 140)
 
 		self . lv = QtGui . QListView ( self )
 		self . lv . setModel ( self . model )
@@ -68,6 +72,14 @@ class Example ( QtGui . QMainWindow ):
 		grades.move(150, 250)
 		grades = QtGui.QLabel('BELOW	F', self)
 		grades.move(150, 270)		
+
+	def showDialog(self):
+		text, ok = QtGui.QInputDialog.getText(self, 'ADD', 
+            'Enter Information:')
+        
+		if ok:
+			self.label.setText(str(text))		
+		
 app = QtGui . QApplication ([])
 ex =  Example ()
 ex.show ()
